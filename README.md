@@ -4,6 +4,9 @@ Research Track 1: second Assignment
 Here in this repository you can find the c++ code for the second assignment of the course Research Track 1,
 done by Carlos Ángel López de Rodas Serrano. 
 
+The ``second_assignment`` folder contains the files needed to generate the enviroment and the robot, those files have not been done by the autor of this repository.
+
+The ``assignment_2`` folder contains the two nodes that had to be coded for the assignment: ``bot_cont_node`` and ``user_interfate_node``.
 
 Running
 ----------------------
