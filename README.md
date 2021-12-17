@@ -7,7 +7,7 @@ done by Carlos Ángel López de Rodas Serrano.
 
 Running
 ----------------------
-First run  the simulation environment with:
+First run the simulation environment with:
 ```bash
 $ prosrun stage_ros stageros $(rospack find second_assignment)/world/my_world.world
 ```
@@ -24,9 +24,10 @@ $ rosrun assignment_2 user_interface_node
 ## Code description
 -----------------------------
 
-There are two mains codes:
-* A code for autonomous driving of a robot in a circuit, robot controller node (``bot_cont_node``)
-* A code that will let the user control the velocity of the robot adn reset its position using the keyboard arrows, the user interface node (``user_interfate_node``)
+There are three mains codes that will comunicate to each other via services and messages:
+* A code for creating and setting the enviroment and the robot (this code is not done by the autor of this repository).
+* A code for autonomous driving of a robot in a circuit, robot controller node: ``bot_cont_node``.
+* A code that will let the user control the velocity of the robot adn reset its position using the keyboard arrows, the user interface node: ``user_interfate_node``.
 
 ### Robot controller node ###
 
@@ -81,7 +82,7 @@ FOR(;;);
 			call resset_positions.server;
 ```
 
-This code has two clients, one to request to change the velocity (``/inc_dec``) and the other one to request the robot to teleport to its initial position (``reset_positions``).
+This code has two clients, one to request to change the velocity ``/inc_dec`` and the other one to request the robot to teleport to its initial position ``reset_positions``.
 
 
 
