@@ -1,4 +1,4 @@
-Research Track 1: first Assignment
+Research Track 1: second Assignment
 ================================
 
 Here in this repository you can find the c++ code for the second assignment of the course Research Track 1,
@@ -25,8 +25,8 @@ $ rosrun assignment_2 user_interface_node
 -----------------------------
 
 There are two mains codes:
-* A code for autonomous driving of a robot in a circuit, robot controller node (bot_cont_node)
-* A code that will let the user control the velocity of the robot adn reset its position using the keyboard arrows, the user interface node (user_interfate_node)
+* A code for autonomous driving of a robot in a circuit, robot controller node (``bot_cont_node``)
+* A code that will let the user control the velocity of the robot adn reset its position using the keyboard arrows, the user interface node (``user_interfate_node``)
 
 ### Robot controller node ###
 
@@ -54,9 +54,9 @@ SWITCH (request from the service):
 ros::spin();
 ```
 
-This code is subscribing to the topic /base_scan which is publushing info about the robot position in the circuit. 
+This code is subscribing to the topic ``/base_scan`` which is publushing info about the robot position in the circuit. 
 It is also publishing the velocity in order to control the robot in the circuit.
-It also implements a funcionality to increase or decrease the velocity using the service /inc_dec.
+It also implements a funcionality to increase or decrease the velocity using the service ``/inc_dec``.
 
 ### User interface node ###
 
@@ -81,7 +81,7 @@ FOR(;;);
 			call resset_positions.server;
 ```
 
-This code has two clients, one to request to change the velocity and the other one to request the robot to teleport to its initial position.
+This code has two clients, one to request to change the velocity (``/inc_dec``) and the other one to request the robot to teleport to its initial position (``reset_positions``).
 
 
 
