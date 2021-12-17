@@ -2,17 +2,31 @@
 #include "assignment_2/Inc_dec.h"
 #include "std_srvs/Empty.h"
 #include <termios.h>
+#include <signal.h>
 #include <stdio.h>
 
 #define KEYCODE_L 0x44
 #define KEYCODE_U 0x41
 #define KEYCODE_D 0x42
+#define KEYCODE_Q 0x71
 
 int kfd = 0;
 struct termios cooked, raw;
 
 ros::ServiceClient client_vel;
 ros::ServiceClient client_reset_pos;
+
+
+void quit(int sig)
+{
+	/*
+	Function to stop the user interface node using ctrl+c on the console
+	*/
+	
+	tcsetattr(kfd, TCSANOW, &cooked);
+ 	ros::shutdown();
+  	exit(0);
+}
 
 
 void keypressed ()
@@ -85,6 +99,8 @@ int main(int argc, char **argv)
 	// Initialize ros node and its node handle
 	ros::init(argc, argv, "user_interface");
 	ros::NodeHandle nh;
+	
+	signal(SIGINT,quit);
 	
 	// Client of /inc_dec
 	client_vel = nh.serviceClient<assignment_2::Inc_dec>("/inc_dec");
